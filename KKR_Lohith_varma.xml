@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<robot name="my_robot">
+    <material name="green">
+        <color rgba="0 1 1 1"/>
+    </material>
+    <material name="grey">
+        <color rgba="1 1 1 1"/>
+    </material>
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <box size="0.3 0.2 0.07"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <material name="green"/>
+        </visual>
+    </link>
+
+    <link name="right_wheel_link">
+        <visual>
+           <geometry>
+               <cylinder radius="0.05" length="0.015"/>
+           </geometry>
+           <origin xyz="0 0 0" rpy="1.57 0 0"/>
+           <material name="grey"/>
+        </visual>
+    </link>
+
+    <link name="left_wheel_link">
+        <visual>
+            <geometry>
+                 <cylinder radius="0.05" length="0.015"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="1.57 0 0"/>
+            <material name="grey"/>
+        </visual>
+    </link>
+
+    <link name="castor wheel">
+       <visual>
+           <geometry>
+              <sphere radius="0.01"/>
+           </geometry>
+           <origin xyz="0 0 0"/>
+           <material name="grey"/>
+       </visual>
+    </link>
+
+    <link name="base_footprint">
+    </link>
+    
+    <link name="castor wheel 2">
+        <visual>
+            <geometry>
+                <sphere radius="0.01"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <material name="grey"/>
+        </visual>
+    </link>
+    <joint name="base_second" type="continuous">
+       <parent link="base_link"/>
+       <child link="right_wheel_link"/>
+       <origin xyz="0.075 0.1 0" rpy="0 0 0"/>
+       <axis xyz="0 1 0"/>
+    </joint>
+
+    <joint name="base_first" type="continuous">
+        <parent link="base_link"/>
+        <child link="left_wheel_link"/>
+        <origin xyz="0.075 -0.1 0" rpy ="0 0 0"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <joint name="base_castor" type="fixed">
+       <parent link="base_link"/>
+       <child link="castor wheel"/>
+       <origin xyz="-0.075 0 -0.04" rpy ="0 0 0"/>
+    </joint>
+
+    <joint name="balancer" type="fixed">
+       <parent link="base_footprint"/>
+       <child link="base_link"/>
+       <origin xyz=" 0 0 0.035"/>
+    </joint>
+
+    <joint name="base_castor_2" type="fixed">
+        <parent link="base_link"/>
+        <child link="castor wheel 2"/>
+        <origin xyz="0.075 0 -0.04"/>
+    </joint>
+</robot>
