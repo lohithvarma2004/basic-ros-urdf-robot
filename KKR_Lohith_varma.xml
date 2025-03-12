@@ -1,138 +1,161 @@
 <?xml version="1.0"?>
 <robot name="fish_hpurv">
 
-    <material name="red">
-        <color rgba="1.0 0.0 0.0 1.0"/>
-    </material>
+  <material name="red">
+    <color rgba="1.0 0.0 0.0 1.0"/>
+  </material>
 
-    <!-- Fish Body Definition -->
-    <link name="body">
-        <visual>
-            <geometry>
-                <box size="1.0 0.5 0.3"/>
-            </geometry>
-            <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
-            <material name="red"/>
-        </visual>
-        <collision>
-            <geometry>
-                <box size="1.0 0.5 0.3"/>
-            </geometry>
-            <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
-        </collision>
-        <inertial>
-            <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
-            <mass value="150.0"/> <!-- Volume 0.15m³ * Density 1000 kg/m³ -->
-            <inertia ixx="1.88" ixy="0.0" ixz="0.0"
-                     iyy="6.25" iyz="0.0" izz="6.25"/>
-        </inertial>
-    </link>
+  <!-- Fish Body Definition -->
+  <link name="body">
+    <visual>
+      <geometry>
+        <box size="1.0 0.5 0.3"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="red"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="1.0 0.5 0.3"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <!-- Body mass is 150 kg -->
+      <mass value="150.0"/>
+      <inertia ixx="1.88" ixy="0.0" ixz="0.0"
+               iyy="6.25" iyz="0.0" izz="6.25"/>
+    </inertial>
+  </link>
 
-    <!-- Left Fin Definition -->
-    <link name="fin_left">
-        <visual>
-            <geometry>
-                <box size="0.5 0.05 0.2"/>
-            </geometry>
-            <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
-            <material name="red"/>
-        </visual>
-        <collision>
-            <geometry>
-                <box size="0.5 0.05 0.2"/>
-            </geometry>
-            <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
-        </collision>
-        <inertial>
-            <mass value="5.0"/> <!-- Volume 0.005m³ * Density 1000 kg/m³ -->
-            <inertia ixx="0.002" ixy="0.0" ixz="0.0"
-                     iyy="0.021" iyz="0.0" izz="0.013"/>
-        </inertial>
-    </link>
+  <!-- Left Fin Definition -->
+  <link name="fin_left">
+    <visual>
+      <geometry>
+        <box size="0.5 0.05 0.2"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="red"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.5 0.05 0.2"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+    <inertial>
+      <!-- Fin mass is 5 kg -->
+      <mass value="5.0"/>
+      <inertia ixx="0.002" ixy="0.0" ixz="0.0"
+               iyy="0.021" iyz="0.0" izz="0.013"/>
+    </inertial>
+  </link>
 
-    <!-- Right Fin Definition -->
-    <link name="fin_right">
-        <visual>
-            <geometry>
-                <box size="0.5 0.05 0.2"/>
-            </geometry>
-            <origin rpy="0.0 0.0 0.0" xyz="0.0 -0.0 0.0"/>
-            <material name="red"/>
-        </visual>
-        <collision>
-            <geometry>
-                <box size="0.5 0.05 0.2"/>
-            </geometry>
-            <origin rpy="0.0 0.0 0.0" xyz="0.0 -0.0 0.0"/>
-        </collision>
-        <inertial>
-            <mass value="5.0"/>
-            <inertia ixx="0.002" ixy="0.0" ixz="0.0"
-                     iyy="0.021" iyz="0.0" izz="0.013"/>
-        </inertial>
-    </link>
+  <!-- Right Fin Definition -->
+  <link name="fin_right">
+    <visual>
+      <geometry>
+        <box size="0.5 0.05 0.2"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="red"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.5 0.05 0.2"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+    <inertial>
+      <!-- Another 5 kg -->
+      <mass value="5.0"/>
+      <inertia ixx="0.002" ixy="0.0" ixz="0.0"
+               iyy="0.021" iyz="0.0" izz="0.013"/>
+    </inertial>
+  </link>
 
-    <!-- Caudal (Tail) Fin Definition -->
-    <link name="caudal_fin">
-        <visual>
-            <geometry>
-                <box size="0.5 0.05 0.2"/>
-            </geometry>
-            <origin rpy="0.0 0.0 0.0" xyz="-0.0 0.0 0.0"/>
-            <material name="red"/>
-        </visual>
-        <collision>
-            <geometry>
-                <box size="0.5 0.05 0.2"/>
-            </geometry>
-            <origin rpy="0.0 0.0 0.0" xyz="-0.0 0.0 0.0"/>
-        </collision>
-        <inertial>
-            <mass value="6.0"/> <!-- Volume 0.005m³ * Density 1200 kg/m³ -->
-            <inertia ixx="0.002" ixy="0.0" ixz="0.0"
-                     iyy="0.021" iyz="0.0" izz="0.013"/>
-        </inertial>
-    </link>
+  <!-- Caudal (Tail) Fin Definition -->
+  <link name="caudal_fin">
+    <visual>
+      <geometry>
+        <box size="0.5 0.05 0.2"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="red"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.5 0.05 0.2"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+    <inertial>
+      <!-- Tail mass is 6 kg -->
+      <mass value="6.0"/>
+      <inertia ixx="0.002" ixy="0.0" ixz="0.0"
+               iyy="0.021" iyz="0.0" izz="0.013"/>
+    </inertial>
+  </link>
 
-    <!-- Joints -->
-    <joint name="left_fin_joint" type="revolute">
-        <parent link="body"/>
-        <child link="fin_left"/>
-        <origin rpy="1.57 0 1.57" xyz="0.0 0.25 0.0"/>
-        <axis xyz="1 0 0"/>
-        <limit effort="10.0" lower="-1.57" upper="1.57" velocity="1.0"/>
-    </joint>
+  <!-- Joints -->
+  <joint name="left_fin_joint" type="revolute">
+    <parent link="body"/>
+    <child link="fin_left"/>
+    <origin rpy="1.57 0 1.57" xyz="0.0 0.25 0.0"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="10.0" lower="-1.57" upper="1.57" velocity="1.0"/>
+  </joint>
 
-    <joint name="right_fin_joint" type="revolute">
-        <parent link="body"/>
-        <child link="fin_right"/>
-        <origin rpy="1.57 0 1.57" xyz="0.0 -0.25 0.0"/>
-        <axis xyz="1 0 0"/>
-        <limit effort="10.0" lower="-1.57" upper="1.57" velocity="1.0"/>
-    </joint>
+  <joint name="right_fin_joint" type="revolute">
+    <parent link="body"/>
+    <child link="fin_right"/>
+    <origin rpy="1.57 0 1.57" xyz="0.0 -0.25 0.0"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="10.0" lower="-1.57" upper="1.57" velocity="1.0"/>
+  </joint>
 
-    <joint name="caudal_fin_joint" type="revolute">
-        <parent link="body"/>
-        <child link="caudal_fin"/>
-        <origin rpy="0 1.57 3.14" xyz="-0.55 0.0 0.0"/>
-        <axis xyz="0 0 1"/>
-        <limit effort="10.0" lower="-1.57" upper="1.57" velocity="1.0"/>
-    </joint>
+  <joint name="caudal_fin_joint" type="revolute">
+    <parent link="body"/>
+    <child link="caudal_fin"/>
+    <origin rpy="0 1.57 3.14" xyz="-0.55 0.0 0.0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10.0" lower="-1.57" upper="1.57" velocity="1.0"/>
+  </joint>
 
-    <!-- Gazebo Settings -->
-    <gazebo reference="body">
-        <mu1>0.1</mu1>
-        <mu2>0.1</mu2>
-    </gazebo>
+  <!-- Gazebo Settings: reduce friction to avoid disturbances -->
+  <gazebo reference="body">
+    <mu1>0</mu1>
+    <mu2>0</mu2>
+  </gazebo>
 
-
-    <gazebo>
-        <plugin name="buoyancy_sphere" filename="libBuoyancyPlugin.so">
-            <link_name>body</link_name>
-            <origin xyz="0 0 0"/>  <!-- Lifted for stability -->
-            <radius>0.34</radius>
-            <fluid_density>1000</fluid_density>
-        </plugin>
-    </gazebo>
+  <!-- Buoyancy Plugin with multiple links -->
+  <gazebo>
+    <plugin name="buoyancy_plugin" filename="libBuoyancyPlugin.so">
+      <fluid_density>1000</fluid_density>
+      <!-- Apply buoyancy to the body -->
+      <link name="body">
+        <!-- Use the displaced volume needed for 150 kg (0.15 m³) -->
+        <volume>0.15</volume>
+        <center_of_volume>0 0 0</center_of_volume>
+      </link>
+      <!-- Apply buoyancy to the left fin -->
+      <link name="fin_left">
+        <volume>0.005</volume>
+        <center_of_volume>0 0 0</center_of_volume>
+      </link>
+      <!-- Apply buoyancy to the right fin -->
+      <link name="fin_right">
+        <volume>0.005</volume>
+        <center_of_volume>0 0 0</center_of_volume>
+      </link>
+      <!-- Apply buoyancy to the caudal (tail) fin -->
+      <link name="caudal_fin">
+        <volume>0.006</volume>
+        <center_of_volume>0 0 0</center_of_volume>
+      </link>
+    </plugin>
+  </gazebo>
 
 </robot>
+
