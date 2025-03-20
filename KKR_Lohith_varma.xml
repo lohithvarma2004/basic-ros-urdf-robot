@@ -157,5 +157,31 @@
     </plugin>
   </gazebo>
 
-</robot>
+  <!-- Hydrodynamics Plugin -->
+  <gazebo>
+    <plugin name="hydrodynamics_plugin" filename="libHydrodynamicsPlugin.so">
+      <!-- Added mass terms (example values) -->
+      <xDotU>-10.0</xDotU>
+      <yDotV>-10.0</yDotV>
+      <zDotW>-10.0</zDotW>
+      <kDotP>-0.1</kDotP>
+      <mDotQ>-0.1</mDotQ>
+      <nDotR>-0.1</nDotR>
+      <!-- Linear and quadratic damping coefficients (example values) -->
+      <xUabsU>-0.32282</xUabsU>
+      <xU>-2.5</xU>
+      <yVabsV>-0.1</yVabsV>
+      <yV>-0.5</yV>
+      <zWabsW>-0.1</zWabsW>
+      <zW>-0.5</zW>
+      <kPabsP>-0.05</kPabsP>
+      <kP>-0.2</kP>
+      <mQabsQ>-0.05</mQabsQ>
+      <mQ>-0.2</mQ>
+      <nRabsR>-0.05</nRabsR>
+      <nR>-0.2</nR>
+      <default_current>0 0 0</default_current>
+    </plugin>
+  </gazebo>
 
+</robot>
