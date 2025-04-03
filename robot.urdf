@@ -1,0 +1,125 @@
+<?xml version="1.0" ?>
+<!-- Generated using onshape-to-robot -->
+<!-- Onshape document_id: aaca298587ed8e68033344ff / workspace_id: b1920aaef25add5d3ec70db8 -->
+<robot name="fish_hpurv">
+  <!-- Link link_base -->
+  <link name="link_base">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1e-09"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <!-- Part link_base -->
+    <visual>
+      <origin xyz="0.246461 -0.269567 0.0980965" rpy="0 -0 0"/>
+      <geometry>
+        <mesh filename="package://fish_hpurv/meshes/assets/link_base.stl"/>
+      </geometry>
+      <material name="link_base_material">
+        <color rgba="0.796078 0.823529 0.937255 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.246461 -0.269567 0.0980965" rpy="0 -0 0"/>
+      <geometry>
+        <mesh filename="package://fish_hpurv/meshes/assets/link_base.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Link link_caudal -->
+  <link name="link_caudal">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1e-09"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <!-- Part link_caudal -->
+    <visual>
+      <origin xyz="-0.378805 2.06432e-16 -0.05" rpy="1.5708 -6.93889e-18 -1.69407e-21"/>
+      <geometry>
+        <mesh filename="package://fish_hpurv/meshes/assets/link_caudal.stl"/>
+      </geometry>
+      <material name="link_caudal_material">
+        <color rgba="0.796078 0.823529 0.937255 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.378805 2.06432e-16 -0.05" rpy="1.5708 -6.93889e-18 -1.69407e-21"/>
+      <geometry>
+        <mesh filename="package://fish_hpurv/meshes/assets/link_caudal.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Joint from link_base to link_caudal -->
+  <joint name="joint1" type="revolute">
+    <origin xyz="-0.117835 -0.000907465 0.0314231" rpy="-0.000307899 0.0333096 3.14158"/>
+    <parent link="link_base"/>
+    <child link="link_caudal"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="10" lower="-0.523599" upper="0.523599"/>
+  </joint>
+  <!-- Link link_pectoral_left -->
+  <link name="link_pectoral_left">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1e-09"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <!-- Part link_pectoral_left -->
+    <visual>
+      <origin xyz="0.0829833 -0.0470575 0.13" rpy="3.14159 -5.9848e-36 1.20371e-35"/>
+      <geometry>
+        <mesh filename="package://fish_hpurv/meshes/assets/link_pectoral_left.stl"/>
+      </geometry>
+      <material name="link_pectoral_left_material">
+        <color rgba="0.796078 0.823529 0.937255 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0829833 -0.0470575 0.13" rpy="3.14159 -5.9848e-36 1.20371e-35"/>
+      <geometry>
+        <mesh filename="package://fish_hpurv/meshes/assets/link_pectoral_left.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Joint from link_base to link_pectoral_left -->
+  <joint name="joint2" type="revolute">
+    <origin xyz="0.361281 0.138858 0.0373077" rpy="-1.5708 -9.77554e-20 -3.14"/>
+    <parent link="link_base"/>
+    <child link="link_pectoral_left"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="10" lower="-0.785398" upper="0.785398"/>
+  </joint>
+  <!-- Link link_pectoral_right -->
+  <link name="link_pectoral_right">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1e-09"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <!-- Part link_pectoral_right -->
+    <visual>
+      <origin xyz="0.0829833 0.0470575 0.13" rpy="0 5.9848e-36 -1.20371e-35"/>
+      <geometry>
+        <mesh filename="package://fish_hpurv/meshes/assets/link_pectoral_right.stl"/>
+      </geometry>
+      <material name="link_pectoral_right_material">
+        <color rgba="0.796078 0.823529 0.937255 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0829833 0.0470575 0.13" rpy="0 5.9848e-36 -1.20371e-35"/>
+      <geometry>
+        <mesh filename="package://fish_hpurv/meshes/assets/link_pectoral_right.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Joint from link_base to link_pectoral_right -->
+  <joint name="joint3" type="revolute">
+    <origin xyz="0.361725 -0.139142 0.0373077" rpy="1.5708 -9.77554e-20 -3.14"/>
+    <parent link="link_base"/>
+    <child link="link_pectoral_right"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="10" lower="-0.785398" upper="0.785398"/>
+  </joint>
+</robot>
