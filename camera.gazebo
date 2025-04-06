@@ -1,0 +1,22 @@
+<gazebo reference="name_of_link">
+  <sensor name="camera" type="camera">
+    <pose> x y z Rx Ry Rz </pose>
+    <visualize>true</visualize>
+    <update_rate>5</update_rate>
+    <camera>
+      <horizontal_fov>fov_in_radians</horizontal_fov>
+      <image>
+        <format>R8G8B8</format>
+        <width>width_in_pixels</width>
+        <height>height_in_pixels</height>
+      </image>
+      <clip>
+        <near>near_plane_in_meters</near>
+        <far>far_plane_in_meters</far>
+      </clip>
+    </camera>
+    <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+      <frame_name>name_of_joint</frame_name>
+    </plugin>
+  </sensor>
+</gazebo>
